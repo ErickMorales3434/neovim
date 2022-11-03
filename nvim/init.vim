@@ -1,4 +1,3 @@
-
 " Directorio de plugins
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -10,12 +9,14 @@ Plug 'tpope/vim-eunuch'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'  " Temas para airline
+Plug 'vimlab/split-term.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 " Luego de esta línea puedes agregar tus configuraciones y mappings
 set title  " Muestra el nombre del archivo en la ventana de la terminal
 set relativenumber  " Muestra los números de las líneas
-set mouse=a  " Permite la integración del mouse (seleccionar texto, mover el cursor)
+set mouse=a  " mermite la integración del mouse (seleccionar texto, mover el cursor)
 
 set nowrap  " No dividir la línea si es muy larga
 
@@ -28,7 +29,6 @@ set shiftwidth=2
 set softtabstop=2
 set shiftround
 set expandtab  " Insertar espacios en lugar de <Tab>s
-
 set hidden  " Permitir cambiar de buffers sin tener que guardarlos
 
 set ignorecase  " Ignorar mayúsculas al hacer una búsqueda
@@ -71,11 +71,13 @@ nnoremap <leader>j :bprevious<CR>
 " Cerrar el buffer actual con <líder> + q
 nnoremap <leader>q :bdelete<CR>
 
+nnoremap <leader>t :VTerm<CR>
+
 " configuracion de plugins
 let g:NERDTreeChDirMode = 2  " Cambia el directorio actual al nodo padre actual
 
 " Abrir/cerrar NERDTree con F2
-map <F2> :NERDTreeToggle<CR>
+map <leader>b :NERDTreeToggle<CR>
 
 " No mostrar en ciertos tipos de buffers y archivos
 let g:indentLine_fileTypeExclude = ['text', 'sh', 'help', 'terminal']
